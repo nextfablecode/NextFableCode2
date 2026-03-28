@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🦅 HAWK – Live Location Sharing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4c1dff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HAWK">
+<link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" class="screen active">
+    <div class="card">
+      <h1>🦅 HAWK</h1>
+      <p class="subtitle">Real-time group location sharing</p>
+
+      <input type="text" id="usernameInput" placeholder="Enter your name" />
+      <label class="colorLabel">Pick your pin color</label>
+      <input type="color" id="colorInput" value="#ff3b3b" />
+      <input type="text" id="groupLabelInput" placeholder="Group name (e.g., Family, Friends)" />
+
+      <div class="buttons">
+        <button id="createGroupBtn">Create Group</button>
+        <button id="joinGroupBtn">Join Group</button>
+      </div>
+
+      <input type="text" id="groupCodeInput" placeholder="Enter 6-digit code" />
+      <p id="loginError" class="error"></p>
+
+      <hr style="margin:16px 0; opacity:.2" />
+<div class="savedTitle">⭐ Saved Groups</div>
+<div id="savedGroupsList" class="savedList"></div>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="appScreen" class="screen appLayout">
+
+    <!-- HEADER -->
+    <div class="topBar">
+      <div class="appTitle">🦅 HAWK</div>
+      <div id="groupInfo">Group: ------</div>
+      <div id="membersList" class="members"></div>
+    </div>
+
+    <!-- MAP -->
+    <div id="map"></div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottomBar">
+      <button id="toggleShareBtn">📍 Share</button>
+      <button id="showCodeBtn">🔗 Code</button>
+      <button id="centerBtn">🎯 Me</button>
+      
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

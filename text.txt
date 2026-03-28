@@ -1,0 +1,92 @@
+https://locationshare-1c651-default-rtdb.asia-southeast1.firebasedatabase.app/
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAzeBgUadTRtqGgAejLQnEfA4ngG6h694o",
+    authDomain: "locationshare-1c651.firebaseapp.com",
+    databaseURL: "https://locationshare-1c651-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "locationshare-1c651",
+    storageBucket: "locationshare-1c651.firebasestorage.app",
+    messagingSenderId: "207038124129",
+    appId: "1:207038124129:web:5a0faaf62d164286e55a20"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
+
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                        HOW IT WORKS                                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+    USER A (Create Group)                      USER B (Join Group)
+          │                                            │
+          ▼                                            ▼
+   ┌─────────────┐                             ┌─────────────┐
+   │ Enters Name │                             │ Enters Name │
+   └─────────────┘                             └─────────────┘
+          │                                            │
+          ▼                                            ▼
+   ┌─────────────┐                             ┌─────────────┐
+   │ Creates NEW │                             │ Enters GROUP│
+   │ Group Code  │ ────── Share Code ───────▶ │    CODE     │
+   │ (6-digit)   │                             │ (e.g.,123456)│
+   └─────────────┘                             └─────────────┘
+          │                                            │
+          ▼                                            ▼
+   ┌─────────────────────────────────────────────────────────────┐
+   │              FIREBASE (Cloud Database)                      │
+   │  ┌─────────────────────────────────────────────────────┐  │
+   │  │  groups/123456/members/                               │  │
+   │  │  ├── "John"  → {lat: 40.71, lng: -74.00, sharing: true}│
+   │  │  ├── "Sarah" → {lat: 40.73, lng: -74.01, sharing: true}│
+   │  │  └── "Mike"  → {lat: 40.69, lng: -73.99, sharing: true}│
+   │  └─────────────────────────────────────────────────────┘  │
+   └─────────────────────────────────────────────────────────────┘
+          │                                            │
+          ▼                                            ▼
+   ┌─────────────┐                             ┌─────────────┐
+   │ GPS Locates │                             │ GPS Locates │
+   │ Phone       │                             │ Phone       │
+   └─────────────┘                             └─────────────┘
+          │                                            │
+          └──────────────────┬──────────────────────────┘
+                             │
+                             ▼
+                  ┌─────────────────────┐
+                  │   LIVE MAP VIEW     │
+                  │   Shows ALL users   │
+                  │   in REAL-TIME      │
+                  └─────────────────────┘
+
+
+
+                  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAzeBgUadTRtqGgAejLQnEfA4ngG6h694o",
+  authDomain: "locationshare-1c651.firebaseapp.com",
+  databaseURL: "https://locationshare-1c651-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "locationshare-1c651",
+  storageBucket: "locationshare-1c651.firebasestorage.app",
+  messagingSenderId: "207038124129",
+  appId: "1:207038124129:web:5a0faaf62d164286e55a20"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
